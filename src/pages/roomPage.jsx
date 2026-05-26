@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import io from 'socket.io-client';
 import styles from '../design/RoomPage.module.css';
 
-const socket = io('http://localhost:8080');
+const socket = io('https://quizzerbackend.onrender.com');
 
 const RoomPage = ({ roomCode, isAdmin }) => {
   const [messages, setMessages] = useState([]);

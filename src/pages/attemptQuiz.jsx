@@ -29,7 +29,7 @@ const Quiz = () => {
   const handleQuizFetch = async (targetId = quizId) => {
     if (!targetId) return;
     try {
-      const response = await axios.get(`http://localhost:8080/quiz/${targetId}`);
+      const response = await axios.get(`https://quizzerbackend.onrender.com/quiz/${targetId}`);
       setQuiz(response.data);
       setScore(null); 
       setQuizFetched(true);

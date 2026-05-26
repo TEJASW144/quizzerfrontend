@@ -22,7 +22,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:8080/login", formData);
+            const response = await axios.post("https://quizzerbackend.onrender.com/login", formData);
             console.log('Data sent successfully: ', response.data);
 
             const token = response.data.token;

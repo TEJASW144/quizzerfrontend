@@ -30,7 +30,7 @@ const QuizForm = () => {
     const handleSaveQuiz = async (e) => {
       e.preventDefault();
       try {
-          const response = await axios.post("http://localhost:8080/addques", {
+          const response = await axios.post("https://quizzerbackend.onrender.com/addques", {
             quizname,
             quizzes,
           });

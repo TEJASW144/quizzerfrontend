@@ -4,7 +4,7 @@ import AttemptQuiz from './attemptQuiz';
 import styles from '../design/QuizRoom.module.css';
 
 // Initialize socket outside the component loop to prevent disconnection cycles
-const socket = io('http://localhost:8080');
+const socket = io('https://quizzerbackend.onrender.com');
 
 const QuizRoom = () => {
   const [roomId, setRoomId] = useState('');
