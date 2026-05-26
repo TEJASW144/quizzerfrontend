@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: url("/firstfolder/nasa.jpg") no-repeat center/cover;
+    color: #fff;
+    transition: background 0.5s ease; 
+}
+
+header {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: background-color 0.5s ease; 
+    font-size: 3rem;
+    font-family: cursive;
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0;
+    font-family: cursive;
+    /* text-decoration: underline; */
+
+}
+
+.contact-section, .faq-section {
+    text-align: center;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: #3498db; /* Blue color for section headings */
+}
+
+.contact-method {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h3 {
+    font-size: 1.25rem;
+    color: #2ecc71; 
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease; 
+}
+
+a:hover {
+    color: #e74c3c; 
+}
+
+
+.faq-section {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+dl {
+    margin: 0;
+}
+
+dt {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    color: #f39c12; 
+}
+
+dd {
+    margin-bottom: 1rem;
+    color: #ecf0f1; 
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 2rem;
+}
+.faqs{
+    text-align: center;
+    color:#f39c12
+}
+
+
+footer:hover {
+    transform: scale(1.05);
+}
+@media only screen and (max-width: 600px) {
+    header {
+        font-size: 2rem;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    dt {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    header {
+        font-size: 2.5rem;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    dt {
+        font-size: 1.1rem;
+    }
+}

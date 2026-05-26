@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Griffy&display=swap');
+body{
+    background-color: rgb(60, 59, 59);
+    background-image: url('https://starwalk.space/gallery/images/what-is-space/1140x641.jpg');
+}
+.button{
+    border: 1px solid black;
+}
+.heading{
+    font-family: Griffy;
+    font-size: 5rem;
+}
+input{
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+}

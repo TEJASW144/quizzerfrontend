@@ -1,0 +1,277 @@
+.pageWrapper {
+  min-height: 100vh;
+  background-color: #0f172a;
+  color: #f8fafc;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  box-sizing: border-box;
+}
+
+.dashboardContainer {
+  width: 100%;
+  max-width: 850px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 20px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+/* Gateway Form Layout Styles */
+.gatewayForm {
+  padding: 56px;
+}
+
+@media (max-width: 550px) {
+  .gatewayForm { padding: 24px; }
+}
+
+.formHeader {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.themeSub {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #3b82f6;
+  text-transform: uppercase;
+}
+
+.formTitle {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 6px 0 10px 0;
+  color: #ffffff;
+}
+
+.formDesc {
+  font-size: 15px;
+  color: #94a3b8;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.splitActionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+@media (max-width: 720px) {
+  .splitActionGrid { grid-template-columns: 1fr; }
+}
+
+.actionCard {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cardIcon {
+  font-size: 36px;
+  margin-bottom: 14px;
+}
+
+.actionCard h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: #ffffff;
+}
+
+.actionCard p {
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+  flex: 1;
+}
+
+.inputContainer {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.styledInput {
+  width: 100%;
+  padding: 12px 14px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  box-sizing: border-box;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+
+.styledInput:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.createBtn, .joinBtn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.createBtn {
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.createBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.joinBtn {
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.joinBtn:hover:not(:disabled) {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.joinBtn:disabled {
+  background: #1e293b;
+  color: #475569;
+  border: 1px solid #334155;
+  cursor: not-allowed;
+}
+
+/* Active Room Panel Layouts */
+.connectedPanel {
+  padding: 0;
+}
+
+.lobbyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 32px;
+  background: rgba(15, 23, 42, 0.4);
+  border-bottom: 1px solid #334155;
+  gap: 16px;
+}
+
+.statusGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.statusGroup h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.pulseNode {
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.roomCodeBadge {
+  display: flex;
+  align-items: center;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.badgeLabel {
+  font-size: 10px;
+  font-weight: 700;
+  color: #64748b;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.badgeValue {
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: #22c55e;
+  padding: 4px 12px;
+}
+
+.waitState {
+  padding: 64px 32px;
+  text-align: center;
+}
+
+.radarIcon {
+  font-size: 44px;
+  margin-bottom: 14px;
+}
+
+.waitState h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: #ffffff;
+}
+
+.waitState p {
+  font-size: 14px;
+  color: #94a3b8;
+  max-width: 440px;
+  margin: 0 auto 32px auto;
+  line-height: 1.6;
+}
+
+.launchButton {
+  padding: 12px 36px;
+  background: #22c55e;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+}
+
+.launchButton:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+}
+
+.componentMount {
+  padding: 32px;
+}

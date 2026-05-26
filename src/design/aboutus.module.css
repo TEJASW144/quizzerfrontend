@@ -1,0 +1,156 @@
+.pageContainer {
+  min-height: 100vh;
+  background-color: #0f172a;
+  color: #f8fafc;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.miniNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 48px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.brandLogo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.backHomeBtn {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.backHomeBtn:hover {
+  color: #ffffff;
+}
+
+.mainContent {
+  flex: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  width: 100%;
+}
+
+.heroSection {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.sectionTitle {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  background: linear-gradient(to right, #ffffff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sectionSubtitle {
+  color: #94a3b8;
+  font-size: 18px;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.splitGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 28px;
+  margin-bottom: 64px;
+}
+
+@media (max-width: 500px) {
+  .splitGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.storyCard {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 36px;
+}
+
+.storyCard h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #3b82f6;
+}
+
+.storyCard p {
+  color: #cbd5e1;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.valuesSection {
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: 16px;
+  padding: 40px;
+  border: 1px solid #1e293b;
+}
+
+.gridTitle {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.valueCard {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 24px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.valueCard:hover {
+  transform: translateY(-4px);
+  border-color: #3b82f6;
+}
+
+.cardIcon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.valueCard h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.valueCard p {
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: #64748b;
+  font-size: 14px;
+  border-top: 1px solid #1e293b;
+  margin-top: 40px;
+}
