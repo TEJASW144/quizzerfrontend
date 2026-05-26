@@ -1,8 +1,7 @@
-import { Outlet, Link, useNavigate } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import styles from '../design/Homepage.module.css';
 
 const WelcomePage = () => {
-
     const handleLogout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('username');
@@ -11,7 +10,6 @@ const WelcomePage = () => {
     return (
         <div className={styles.body}>
             <div className={styles.bgimage}>
-                {/* Modern Authenticated Navigation Header */}
                 <div className={styles.header}>
                     <div className={styles.navGroupLeft}>
                         <Link to="/aboutus">
@@ -32,7 +30,6 @@ const WelcomePage = () => {
                     </div>
                 </div>
 
-                {/* Main Hero Panel */}
                 <div className={styles.heroContent}>
                     <h1 className={styles.h1}>Apollo's Oracle</h1>
                     <p className={styles.heroSubtitle}>Your terminal session is synchronized. Choose your vector.</p>

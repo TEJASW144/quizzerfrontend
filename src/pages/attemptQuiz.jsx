@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom'; // 🎯 Added hook injection
+import { useParams } from 'react-router-dom';
 import styles from '../design/Quiz.module.css';
 
 const Quiz = () => {
-  // Grab the dynamic parameter variable from the address bar link structure
   const { quizId: urlQuizId } = useParams(); 
   
   const [quizId, setQuizId] = useState(urlQuizId || '');
@@ -14,22 +13,11 @@ const Quiz = () => {
   const [score, setScore] = useState(null);
   const [quizFetched, setQuizFetched] = useState(false);
 
-  // AUTO-FETCH SCRIPT: If an ID is present in the link, load it instantly!
-  useEffect(() => {
-    if (urlQuizId) {
-      handleQuizFetch(urlQuizId);
-    }
-  }, [urlQuizId, handleQuizFetch]);
-
-  const handleQuizIdChange = (e) => {
-    setQuizId(e.target.value);
-  };
-
-  // Adjusted to accept direct string targets safely
-  const handleQuizFetch = async (targetId = quizId) => {
-    if (!targetId) return;
+  // Fallback Manual Action Button Handler
+  const handleManualQuizFetch = async () => {
+    if (!quizId) return;
     try {
-      const response = await axios.get(`https://quizzerbackend.onrender.com/quiz/${targetId}`);
+      const response = await axios.get(`http://localhost:8080/quiz/${quizId}`);
       setQuiz(response.data);
       setScore(null); 
       setQuizFetched(true);
@@ -38,6 +26,23 @@ const Quiz = () => {
       setQuizFetched(false);
     }
   };
+
+  // 1. FIXED: Enclosed url parsing directly inside hook frame
+  useEffect(() => {
+    const handleUrlFetch = async () => {
+      if (!urlQuizId) return;
+      try {
+        const response = await axios.get(`http://localhost:8080/quiz/${urlQuizId}`);
+        setQuiz(response.data);
+        setScore(null); 
+        setQuizFetched(true);
+      } catch (error) {
+        console.error('Error auto fetching quiz:', error);
+        setQuizFetched(false);
+      }
+    };
+    handleUrlFetch();
+  }, [urlQuizId]);
 
   const handleOptionSelect = (questionIndex, selectedOption) => {
     setUserAnswers((prevAnswers) => ({
@@ -50,16 +55,6 @@ const Quiz = () => {
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
   };
 
-  const calculateScore = () => {
-    let correctAnswers = 0;
-    quiz.quiz.forEach((question, index) => {
-      if (userAnswers[index] === question.correctAnswer) {
-        correctAnswers += 1;
-      }
-    });
-    return correctAnswers;
-  };
-
   useEffect(() => {
     if (!urlQuizId) {
       setQuiz(null);
@@ -69,18 +64,23 @@ const Quiz = () => {
     }
   }, [quizId, urlQuizId]);
 
+  // 2. FIXED: Nested computation inside evaluating execution state
   useEffect(() => {
     if (quiz && currentQuestionIndex === quiz.quiz.length) {
-      const userScore = calculateScore();
-      setScore(userScore);
+      let correctAnswers = 0;
+      quiz.quiz.forEach((question, index) => {
+        if (userAnswers[index] === question.correctAnswer) {
+          correctAnswers += 1;
+        }
+      });
+      setScore(correctAnswers);
     }
-  }, [currentQuestionIndex, quiz, calculateScore]);
+  }, [currentQuestionIndex, quiz, userAnswers]);
 
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.quizCardContainer}>
         
-        {/* Fallback Input Panel: Only displays if no code was attached to the URL link */}
         {!quizFetched && (
           <div className={styles.fetchSection}>
             <div className={styles.iconHeader}>🧠</div>
@@ -93,17 +93,16 @@ const Quiz = () => {
                 type="text"
                 placeholder="Ex. 64f1bc..."
                 value={quizId}
-                onChange={handleQuizIdChange}
+                onChange={(e) => setQuizId(e.target.value)}
                 className={styles.styledInput}
               />
             </div>
-            <button onClick={() => handleQuizFetch()} className={styles.primaryButton}>
+            <button onClick={handleManualQuizFetch} className={styles.primaryButton}>
               Fetch Quiz Terminal
             </button>
           </div>
         )}
 
-        {/* Live Quiz Rendering Core Nodes */}
         {quiz && (
           <div className={styles.liveQuizSection}>
             <header className={styles.quizHeader}>
@@ -176,7 +175,6 @@ const Quiz = () => {
                   <p className={styles.scoreMetric}>Correct Answers Secured</p>
                 </div>
 
-                {/* Real-World Bonus: Shareable link field displayed at review stage */}
                 <div className={styles.shareContainer} style={{margin: '24px 0', padding: '16px', background: '#0f172a', borderRadius: '8px', border: '1px dashed #334155'}}>
                    <p style={{fontSize: '12px', color: '#94a3b8', margin: '0 0 8px 0', fontWeight: '600'}}>🔗 SHARE THIS QUIZ WITH FRIENDS:</p>
                    <input 
