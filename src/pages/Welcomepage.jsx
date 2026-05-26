@@ -2,7 +2,6 @@ import { Outlet, Link, useNavigate } from "react-router-dom";
 import styles from '../design/Homepage.module.css';
 
 const WelcomePage = () => {
-    const navigate = useNavigate();
 
     const handleLogout = () => {
         localStorage.removeItem('token');

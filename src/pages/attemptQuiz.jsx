@@ -19,7 +19,7 @@ const Quiz = () => {
     if (urlQuizId) {
       handleQuizFetch(urlQuizId);
     }
-  }, [urlQuizId]);
+  }, [urlQuizId, handleQuizFetch]);
 
   const handleQuizIdChange = (e) => {
     setQuizId(e.target.value);
@@ -74,7 +74,7 @@ const Quiz = () => {
       const userScore = calculateScore();
       setScore(userScore);
     }
-  }, [currentQuestionIndex, quiz]);
+  }, [currentQuestionIndex, quiz, calculateScore]);
 
   return (
     <div className={styles.pageWrapper}>
